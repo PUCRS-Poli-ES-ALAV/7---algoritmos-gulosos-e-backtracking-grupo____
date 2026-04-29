@@ -97,10 +97,7 @@ public class EscalonamentoIntervalos {
         for (int k = 0; k < s.length; k++) {
             iteracoes++;
             
-            // Em "s[k] >= f[ultimo]", decidi fazer >= em vez de apenas > para maximizar o numero de intervalos,
-            // sem o =, é não incluso, fazendo que, por exemplo, 5-8 e 8-11 não seja um intervalo
-
-            if (ultimo == -1 || s[k] >= f[ultimo]) {
+            if (ultimo == -1 || s[k] > f[ultimo]) {
                 x[k] = 1;
                 ultimo = k;
             }
@@ -158,15 +155,21 @@ public class EscalonamentoIntervalos {
         int s3[] = {2, 0, 1, 5, 4, 8, 7, 11, 10, 14, 13};
         int f3[] = {4, 6, 6, 7, 9, 10, 12, 13, 16, 18, 20};
 
+        int s4[] = {6, 9, 7, 18, 1, 23, 25, 30};
+        int f4[] = {15, 15, 16, 24, 26, 28, 30, 34};
+
         System.out.println("=".repeat(25));
 
         resultado("Teste 1", s1, f1, calcularEscalonamento(s1, f1));
-        System.out.println("=".repeat(25) + "\n");
+        System.out.println("=".repeat(40) + "\n");
 
         resultado("Teste 2", s2, f2, calcularEscalonamento(s2, f2));
-        System.out.println("=".repeat(25) + "\n");
+        System.out.println("=".repeat(40) + "\n");
 
         resultado("Teste 3", s3, f3, calcularEscalonamento(s3, f3));
-        System.out.println("=".repeat(25) + "\n");
+        System.out.println("=".repeat(40) + "\n");
+
+        resultado("Teste 4", s4, f4, calcularEscalonamento(s4, f4));
+        System.out.println("=".repeat(40) + "\n");
     }
 }
